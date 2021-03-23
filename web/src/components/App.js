@@ -1,9 +1,22 @@
 import React from "react";
 import Login from "./Login";
+import api from "../services/api";
 
 const App = () => {
   const handlesignIn = (data) => {
-    console.log(data);
+    api.sendLogin(data).then((data) => {
+      //   if (data.error) {
+      //     // guardo el error en el estado para que se pinte
+      //     setLoginError(data.message);
+      //   } else {
+      //     // limpio el error
+      //     setLoginError("");
+      //     // guardo el usuario en el estado y en localStorage
+      //     setUserId(data.userId);
+      //     localStorage.set("user", data);
+      //   }
+      // });
+    });
   };
   const renderLogin = () => {
     return (
