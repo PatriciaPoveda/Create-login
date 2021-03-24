@@ -49,6 +49,7 @@ const Login = (props) => {
           />
           <input type="submit" value="Regístrate" className="js-SignIn" />
         </form>
+        <p>{props.loginError}</p>
       </main>
     </>
   );

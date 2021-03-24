@@ -10,7 +10,7 @@ const login = (req, res) => {
     res.json({
       error: false,
       userId: userFound.id,
-      userName: userFound.name,
+      userName: userFound.userName,
     });
   } else {
     res.status(404).json({
