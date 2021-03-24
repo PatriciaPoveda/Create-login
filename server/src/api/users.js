@@ -2,7 +2,7 @@ const usersData = require("../data/users");
 
 const login = (req, res) => {
   const userFound = usersData.getUserByEmailAndPassword(
-    req.body.email,
+    req.body.userName,
     req.body.password
   );
 
@@ -10,7 +10,7 @@ const login = (req, res) => {
     res.json({
       error: false,
       userId: userFound.id,
-      userEmail: userFound.email,
+      userName: userFound.name,
     });
   } else {
     res.status(404).json({

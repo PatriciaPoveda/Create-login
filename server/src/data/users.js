@@ -1,8 +1,8 @@
 const usersData = require("../../db/database.json");
 
-const getUserByEmailAndPassword = (email, password) => {
+const getUserByEmailAndPassword = (userName, password) => {
   return usersData.find(
-    (user) => user.email === email && user.password === password
+    (user) => user.userName === userName && user.password === password
   );
 };
 

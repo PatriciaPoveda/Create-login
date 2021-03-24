@@ -8,4 +8,7 @@ const sendLogin = (userData) => {
   }).then((res) => res.json());
 };
 
-export default sendLogin;
+const exportObj = {
+  sendLogin: sendLogin,
+};
+export default exportObj;

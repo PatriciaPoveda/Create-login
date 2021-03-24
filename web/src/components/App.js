@@ -5,6 +5,7 @@ import api from "../services/api";
 const App = () => {
   const handlesignIn = (data) => {
     api.sendLogin(data).then((data) => {
+      console.log(data);
       //   if (data.error) {
       //     // guardo el error en el estado para que se pinte
       //     setLoginError(data.message);
