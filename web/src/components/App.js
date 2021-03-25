@@ -5,9 +5,9 @@ import Header from "./Header";
 import Intranet from "./Intranet";
 
 const App = () => {
-  const [userData, setUserData] = useState("");
-  const [userId, setUserId] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
 
   const handlesignIn = (data) => {
     api.sendLogin(data).then((data) => {
@@ -18,8 +18,8 @@ const App = () => {
       } else {
         // limpio el error
         setLoginError("");
-        setUserData(data.userName);
         setUserId(data.userId);
+        setUserName(data.userName);
       }
     });
   };
@@ -33,7 +33,7 @@ const App = () => {
   const renderIntranet = () => {
     return (
       <>
-        <Header userData={userData}></Header>
+        <Header userName={userName}></Header>
         <Intranet></Intranet>
       </>
     );
