@@ -1,9 +1,14 @@
 const usersData = require("../../db/database.json");
 
-const getUserByEmailAndPassword = (userName, password) => {
+const getUserByNameAndPassword = (userName, password) => {
   return usersData.find(
     (user) => user.userName === userName && user.password === password
   );
 };
-
-module.exports = { getUserByEmailAndPassword: getUserByEmailAndPassword };
+const getUserDelete = (userId) => {
+  return usersData.find((user) => user.Id === userId);
+};
+module.exports = {
+  getUserByNameAndPassword: getUserByNameAndPassword,
+  getUserDelete: getUserDelete,
+};

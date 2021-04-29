@@ -1,13 +1,17 @@
-.intranet {
-  height: 97vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url(../images/background.jpg);
-  background-size: cover;
-  &__title {
-    color: #f2db1d;
-    font-size: 100px;
-  }
+// .intranet {
+//   height: 97vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   // background-image: url(../images/background.jpg);
+//   background-color: #033e8c;
+//   background-size: cover;
+//   &__title {
+//     color: #f2db1d;
+//     font-size: 100px;
+//   }
+// }
+.Container__delete {
+  text-align: center;
 }

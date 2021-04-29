@@ -5,22 +5,36 @@ import Header from "./Header";
 import Intranet from "./Intranet";
 
 const App = () => {
+  //State
   const [loginError, setLoginError] = useState("");
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
 
+  //Sign In
   const handlesignIn = (data) => {
     api.sendLogin(data).then((data) => {
       console.log(data);
       if (data.error) {
-        // guardo el error en el estado para que se pinte
         setLoginError(data.message);
       } else {
-        // limpio el error
         setLoginError("");
         setUserId(data.userId);
         setUserName(data.userName);
       }
+    });
+  };
+
+  //UpdateUser
+  const handleUserUpdate = (data) => {
+    api.sendUserUpdate(data).then((data) => {
+      console.log(data);
+    });
+  };
+
+  //Delete User
+  const handleUserDelete = () => {
+    api.sendUserDelete(userId).then((data) => {
+      console.log(data);
     });
   };
   const renderLogin = () => {
@@ -34,7 +48,10 @@ const App = () => {
     return (
       <>
         <Header userName={userName}></Header>
-        <Intranet></Intranet>
+        <Intranet
+          handleUserUpdate={handleUserUpdate}
+          handleUserDelete={handleUserDelete}
+        ></Intranet>
       </>
     );
   };
