@@ -7,13 +7,13 @@ import Intranet from "./Intranet";
 const App = () => {
   //State
   const [loginError, setLoginError] = useState("");
+  const [deleteMessage, setDeleteMessage] = useState("");
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
 
   //Sign In
   const handlesignIn = (data) => {
     api.sendLogin(data).then((data) => {
-      console.log(data);
       if (data.error) {
         setLoginError(data.message);
       } else {
@@ -35,6 +35,13 @@ const App = () => {
   const handleUserDelete = () => {
     api.sendUserDelete(userId).then((data) => {
       console.log(data);
+      if (data.error) {
+        // setDeleteMessage("");
+        setDeleteMessage(data.message);
+      } else {
+        // setDeleteMessage("");
+        setDeleteMessage(data.message);
+      }
     });
   };
   const renderLogin = () => {
@@ -51,6 +58,7 @@ const App = () => {
         <Intranet
           handleUserUpdate={handleUserUpdate}
           handleUserDelete={handleUserDelete}
+          deleteMessage={deleteMessage}
         ></Intranet>
       </>
     );

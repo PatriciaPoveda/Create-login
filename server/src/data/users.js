@@ -15,7 +15,6 @@ const getUserDelete = (id) => {
   // return usersData.find((user) => user.Id === id);
   const query = data.db.prepare(`DELETE FROM users WHERE id = ?`);
   const user = query.run(id);
-
   return user;
 };
 module.exports = {
