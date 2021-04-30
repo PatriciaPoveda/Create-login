@@ -19,6 +19,27 @@ const login = (req, res) => {
     });
   }
 };
+
+const userUpdate = (req, res) => {
+  const userFound = usersData.getUserUpdate(
+    req.body.userNameUpdate,
+    req.body.passwordUpdate,
+    req.body.id
+  );
+
+  if (userFound.changes === 1) {
+    res.json({
+      error: false,
+      message: "User update",
+    });
+  } else {
+    res.status(404).json({
+      error: "user-not-update",
+      message: "User not update",
+    });
+  }
+};
+
 const userDelete = (req, res) => {
   const userFound = usersData.getUserDelete(req.body.id);
 
@@ -35,4 +56,8 @@ const userDelete = (req, res) => {
   }
 };
 
-module.exports = { login: login, userDelete: userDelete };
+module.exports = {
+  login: login,
+  userDelete: userDelete,
+  userUpdate: userUpdate,
+};

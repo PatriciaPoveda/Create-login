@@ -16,6 +16,7 @@ const Intranet = (props) => {
 
   const handleFormUpdate = (ev) => {
     ev.preventDefault();
+
     props.handleUserUpdate({
       userNameUpdate: userNameUpdate,
       passwordUpdate: passwordUpdate,
@@ -24,11 +25,7 @@ const Intranet = (props) => {
   return (
     <>
       <main className="main">
-        <form
-          action=""
-          className="main__form js-signIn"
-          onSubmit={handleFormUpdate}
-        >
+        <form action="" className="main__form " onSubmit={handleFormUpdate}>
           <h2 className="main__title">Update</h2>
           <label htmlFor="name" className="main__form--label">
             Introduce tu usuario
@@ -37,7 +34,7 @@ const Intranet = (props) => {
             type="text"
             id="name"
             placeholder="Ej: Laura"
-            className="main__form--input js-username"
+            className="main__form--input "
             onChange={handleUserNameUpdate}
           />
           <label htmlFor="password" className="main__form--label">
@@ -54,6 +51,7 @@ const Intranet = (props) => {
             value="Actualizar Usuario"
             className="js-SignIn"
           />
+          <p>{props.updateMessage}</p>
         </form>
         <Delete
           handleUserDelete={props.handleUserDelete}
