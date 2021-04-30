@@ -20,7 +20,7 @@ const login = (req, res) => {
   }
 };
 const userDelete = (req, res) => {
-  const userFound = usersData.getUserDelete(req.body.userId);
+  const userFound = usersData.getUserDelete(req.body.id);
 
   if (userFound) {
     res.json({

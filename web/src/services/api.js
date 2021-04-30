@@ -19,10 +19,14 @@ const sendUserUpdate = (userData) => {
 };
 
 //Delete
+
 const sendUserDelete = (userId) => {
   return fetch(`${apiBaseUrl}/delete`, {
     method: "POST",
-    // body: JSON.stringify(userId),
+    body: JSON.stringify({
+      id: userId,
+    }),
+
     headers: { "Content-Type": "application/json" },
   }).then((res) => res.json());
 };
