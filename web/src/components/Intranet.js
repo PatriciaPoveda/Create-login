@@ -55,7 +55,10 @@ const Intranet = (props) => {
             className="js-SignIn"
           />
         </form>
-        <Delete handleUserDelete={props.handleUserDelete}></Delete>
+        <Delete
+          handleUserDelete={props.handleUserDelete}
+          deleteMessage={props.deleteMessage}
+        ></Delete>
       </main>
     </>
   );

@@ -22,15 +22,15 @@ const login = (req, res) => {
 const userDelete = (req, res) => {
   const userFound = usersData.getUserDelete(req.body.id);
 
-  if (userFound) {
+  if (userFound.changes === 1) {
     res.json({
       error: false,
-      userId: userFound.id,
+      message: "User delete",
     });
   } else {
     res.status(404).json({
-      error: "user-not-found",
-      message: "User not found",
+      error: "user-not-exists",
+      message: "User not exists",
     });
   }
 };

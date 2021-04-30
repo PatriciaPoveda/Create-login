@@ -26,7 +26,6 @@ const sendUserDelete = (userId) => {
     body: JSON.stringify({
       id: userId,
     }),
-
     headers: { "Content-Type": "application/json" },
   }).then((res) => res.json());
 };
