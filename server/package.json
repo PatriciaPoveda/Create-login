@@ -11,8 +11,8 @@
   "author": "Patuka",
   "license": "ISC",
   "dependencies": {
+    "better-sqlite3": "^7.1.5",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "ejs": "^3.1.5"
+    "express": "^4.17.1"
   }
 }

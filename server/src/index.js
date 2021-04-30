@@ -2,6 +2,8 @@ const cors = require("cors");
 const express = require("express");
 const apiUsers = require("./api/users");
 const films = require("../db/films-data.json");
+const Database = require("better-sqlite3");
+const path = require("path");
 
 const app = express();
 app.use(express.json());
@@ -12,28 +14,12 @@ app.listen(serverPort, () => {
   console.log(`App listening at http://localhost:${serverPort}`);
 });
 
+const dbPath = path.join(__dirname, "/../db/Database.db");
+module.exports.db = new Database(dbPath, {
+  verbose: console.log,
+});
+
 app.use(express.static("./public"));
 
 app.post("/api/login", apiUsers.login);
 app.post("/api/delete", apiUsers.userDelete);
-
-//Motor de plantillas
-// app.set("view engine", "ejs");
-// app.get("/intranet/:filmId.html", (req, res) => {
-//   // get film data
-//   const filmData = films.find((film) => film.id === req.params.filmId);
-//   console.log("film data", filmData);
-
-//   // response with rendered template
-//   if (filmData) {
-//     // ensure data
-//     filmData.title = filmData.title || "";
-//     filmData.year = filmData.year || "";
-//     filmData.director = filmData.director || "";
-//     filmData.country = filmData.country || "";
-//     filmData.awards = filmData.awards || [];
-//     res.render("pages/film", filmData);
-//   } else {
-//     res.render("pages/film-not-found");
-//   }
-// });
