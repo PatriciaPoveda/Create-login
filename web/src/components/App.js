@@ -8,6 +8,7 @@ const App = () => {
   //State
   const [loginError, setLoginError] = useState("");
   const [deleteMessage, setDeleteMessage] = useState("");
+  const [updateMessage, setUpdateMessage] = useState("");
   const [userId, setUserId] = useState("");
   const [userName, setUserName] = useState("");
 
@@ -26,8 +27,16 @@ const App = () => {
 
   //UpdateUser
   const handleUserUpdate = (data) => {
+    data.id = userId;
     api.sendUserUpdate(data).then((data) => {
       console.log(data);
+      if (data.error) {
+        // setDeleteMessage("");
+        setUpdateMessage(data.message);
+      } else {
+        // setUpdateMessage("");
+        setUpdateMessage(data.message);
+      }
     });
   };
 
@@ -59,6 +68,7 @@ const App = () => {
           handleUserUpdate={handleUserUpdate}
           handleUserDelete={handleUserDelete}
           deleteMessage={deleteMessage}
+          updateMessage={updateMessage}
         ></Intranet>
       </>
     );

@@ -10,10 +10,10 @@ const sendLogin = (userData) => {
 };
 
 //Update
-const sendUserUpdate = (userData) => {
+const sendUserUpdate = (data) => {
   return fetch(`${apiBaseUrl}/update`, {
-    method: "PUT",
-    body: JSON.stringify(userData),
+    method: "POST",
+    body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
   }).then((res) => res.json());
 };

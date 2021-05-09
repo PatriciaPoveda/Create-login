@@ -1,4 +1,3 @@
-const usersData = require("../../db/database.json");
 const data = require("../index");
 
 const getUserByNameAndPassword = (userName, password) => {
@@ -11,6 +10,15 @@ const getUserByNameAndPassword = (userName, password) => {
   const user = query.get(userName, password);
   return user;
 };
+//UPDATE
+const getUserUpdate = (userNameUpdate, passwordUpdate, id) => {
+  const query = data.db.prepare(
+    `UPDATE users SET userName = ?, password = ? WHERE id = ?`
+  );
+  const user = query.run(userNameUpdate, passwordUpdate, id);
+  return user;
+};
+//DELETE
 const getUserDelete = (id) => {
   // return usersData.find((user) => user.Id === id);
   const query = data.db.prepare(`DELETE FROM users WHERE id = ?`);
@@ -20,4 +28,5 @@ const getUserDelete = (id) => {
 module.exports = {
   getUserByNameAndPassword: getUserByNameAndPassword,
   getUserDelete: getUserDelete,
+  getUserUpdate: getUserUpdate,
 };
