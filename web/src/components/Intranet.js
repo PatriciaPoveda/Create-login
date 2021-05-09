@@ -1,17 +1,18 @@
-import Delete from "./Delete";
-import Update from "./Update";
+import { Link } from "react-router-dom";
 
 const Intranet = (props) => {
   return (
     <main className="main">
-      <Update
-        handleUserUpdate={props.handleUserUpdate}
-        updateMessage={props.updateMessage}
-      ></Update>
-      <Delete
-        handleUserDelete={props.handleUserDelete}
-        deleteMessage={props.deleteMessage}
-      ></Delete>
+      <nav>
+        <ul>
+          <li>
+            <Link to={`/update/${props.userId}`}>Actualizar Usuario</Link>
+          </li>
+          <li>
+            <Link to={`/delete/${props.userId}`}>Borrar Usuario</Link>
+          </li>
+        </ul>
+      </nav>
     </main>
   );
 };

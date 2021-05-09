@@ -3,6 +3,9 @@ import Login from "./Login";
 import api from "../services/api";
 import Header from "./Header";
 import Intranet from "./Intranet";
+import { Route, Switch } from "react-router-dom";
+import Delete from "./Delete";
+import Update from "./Update";
 
 const App = () => {
   //State
@@ -63,13 +66,27 @@ const App = () => {
   const renderIntranet = () => {
     return (
       <>
-        <Header userName={userName}></Header>
-        <Intranet
-          handleUserUpdate={handleUserUpdate}
-          handleUserDelete={handleUserDelete}
-          deleteMessage={deleteMessage}
-          updateMessage={updateMessage}
-        ></Intranet>
+        <Switch>
+          <Route exact path="/">
+            <Header userName={userName}></Header>
+            <Intranet userId={userId}></Intranet>
+          </Route>
+          <Route path="/update/:userId">
+            <Header userName={userName}></Header>
+            <Update
+              handleUserUpdate={handleUserUpdate}
+              updateMessage={updateMessage}
+            ></Update>
+          </Route>
+          <Route path="/delete/:userId">
+            <Header userName={userName}></Header>
+            <Delete
+              userId={userId}
+              handleUserDelete={handleUserDelete}
+              deleteMessage={deleteMessage}
+            ></Delete>
+          </Route>
+        </Switch>
       </>
     );
   };
