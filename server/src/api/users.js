@@ -24,7 +24,7 @@ const userUpdate = (req, res) => {
   const userFound = usersData.getUserUpdate(
     req.body.userNameUpdate,
     req.body.passwordUpdate,
-    req.body.id
+    req.params.userId
   );
 
   if (userFound.changes === 1) {
@@ -41,7 +41,7 @@ const userUpdate = (req, res) => {
 };
 
 const userDelete = (req, res) => {
-  const userFound = usersData.getUserDelete(req.body.id);
+  const userFound = usersData.getUserDelete(req.params.userId);
 
   if (userFound.changes === 1) {
     res.json({

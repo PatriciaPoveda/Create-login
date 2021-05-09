@@ -30,8 +30,7 @@ const App = () => {
 
   //UpdateUser
   const handleUserUpdate = (data) => {
-    data.id = userId;
-    api.sendUserUpdate(data).then((data) => {
+    api.sendUserUpdate(data, userId).then((data) => {
       console.log(data);
       if (data.error) {
         // setDeleteMessage("");

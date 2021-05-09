@@ -22,5 +22,5 @@ module.exports.db = new Database(dbPath, {
 app.use(express.static("./public"));
 
 app.post("/api/login", apiUsers.login);
-app.post("/api/delete", apiUsers.userDelete);
-app.post("/api/update", apiUsers.userUpdate);
+app.post("/api/delete/:userId", apiUsers.userDelete);
+app.post("/api/update/:userId", apiUsers.userUpdate);

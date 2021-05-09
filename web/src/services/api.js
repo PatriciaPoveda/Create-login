@@ -10,8 +10,8 @@ const sendLogin = (userData) => {
 };
 
 //Update
-const sendUserUpdate = (data) => {
-  return fetch(`${apiBaseUrl}/update`, {
+const sendUserUpdate = (data, userId) => {
+  return fetch(`${apiBaseUrl}/update/${userId}`, {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -21,12 +21,8 @@ const sendUserUpdate = (data) => {
 //Delete
 
 const sendUserDelete = (userId) => {
-  return fetch(`${apiBaseUrl}/delete`, {
+  return fetch(`${apiBaseUrl}/delete/${userId}`, {
     method: "POST",
-    body: JSON.stringify({
-      id: userId,
-    }),
-    headers: { "Content-Type": "application/json" },
   }).then((res) => res.json());
 };
 

@@ -11,18 +11,18 @@ const getUserByNameAndPassword = (userName, password) => {
   return user;
 };
 //UPDATE
-const getUserUpdate = (userNameUpdate, passwordUpdate, id) => {
+const getUserUpdate = (userNameUpdate, passwordUpdate, userId) => {
   const query = data.db.prepare(
     `UPDATE users SET userName = ?, password = ? WHERE id = ?`
   );
-  const user = query.run(userNameUpdate, passwordUpdate, id);
+  const user = query.run(userNameUpdate, passwordUpdate, userId);
   return user;
 };
 //DELETE
-const getUserDelete = (id) => {
+const getUserDelete = (userId) => {
   // return usersData.find((user) => user.Id === id);
   const query = data.db.prepare(`DELETE FROM users WHERE id = ?`);
-  const user = query.run(id);
+  const user = query.run(userId);
   return user;
 };
 module.exports = {
