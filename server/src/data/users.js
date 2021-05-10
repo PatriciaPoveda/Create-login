@@ -1,9 +1,6 @@
 const data = require("../index");
 
 const getUserByNameAndPassword = (userName, password) => {
-  // return usersData.find(
-  //   (user) => user.userName === userName && user.password === password
-  // );
   const query = data.db.prepare(
     `SELECT * FROM users WHERE userName = ? AND password = ?`
   );
